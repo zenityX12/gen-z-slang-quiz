@@ -42,17 +42,15 @@ export function generateUsageQuestions(
   const selected = shuffled.slice(0, count);
 
   return selected.map((word) => {
-    const wrongOptions = slangWords
-      .filter((w) => w.id !== word.id)
-      .map((w) => w.example);
-    
-    const shuffledWrong = shuffleArray(wrongOptions).slice(0, 3);
-    const options = shuffleArray([word.example, ...shuffledWrong]);
+    // สร้างตัวเลือกที่ทุกตัวมีคำศัพท์นั้น ๆ อยู่
+    // โดย 1 ตัวเลือกใช้ถูก (correctUsage) และ 3 ตัวเลือกใช้ผิด (wrongUsages)
+    const shuffledWrongUsages = shuffleArray(word.wrongUsages).slice(0, 3);
+    const options = shuffleArray([word.correctUsage, ...shuffledWrongUsages]);
 
     return {
       id: word.id,
       word: word.word,
-      correctAnswer: word.example,
+      correctAnswer: word.correctUsage,
       options,
       type: 'usage' as const,
     };

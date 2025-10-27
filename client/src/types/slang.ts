@@ -3,7 +3,8 @@ export interface SlangWord {
   word: string;
   pronunciation: string;
   meaning: string;
-  example: string;
+  correctUsage: string;
+  wrongUsages: string[];
   difficulty: 'easy' | 'medium' | 'hard';
 }
 
