@@ -25,3 +25,13 @@
 - [x] ตรวจสอบ User Flow
 - [x] ปรับปรุง Performance
 
+
+
+## UI/UX Improvements
+- [x] ปรับ Color Palette ให้เป็นโทนสีที่สุขุมและมืออาชีพ
+- [x] เปลี่ยนจากอีโมจิเป็นไอคอนมืออาชีพ
+- [x] ปรับ Typography และ Layout ให้ดูเป็นธรรมชาติ
+- [x] ปรับปรุง Responsive Design สำหรับ Mobile-First
+- [x] ปรับ UI Components ให้ดูเป็นมาตรฐานสากล
+- [x] ลดความฉูดฉาดของสีสันและ Gradient
+
