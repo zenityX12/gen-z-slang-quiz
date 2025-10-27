@@ -12,7 +12,7 @@ export interface QuizQuestion {
   word: string;
   correctAnswer: string;
   options: string[];
-  type: 'meaning' | 'pronunciation';
+  type: 'meaning' | 'usage';
 }
 
 export interface QuizResult {

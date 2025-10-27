@@ -1,16 +1,16 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { calculateScore, generateMeaningQuestions, generatePronunciationQuestions } from '@/lib/quiz-utils';
+import { calculateScore, generateMeaningQuestions, generateUsageQuestions } from '@/lib/quiz-utils';
 import { QuizQuestion, SlangWord } from '@/types/slang';
-import { ArrowLeft, Check, X, BookOpen, Headphones, RotateCcw, Home } from 'lucide-react';
+import { ArrowLeft, Check, X, BookOpen, MessageSquare, RotateCcw, Home } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useRoute } from 'wouter';
 
 export default function Quiz() {
   const [, params] = useRoute('/quiz/:type');
   const [, setLocation] = useLocation();
-  const quizType = params?.type as 'meaning' | 'pronunciation';
+  const quizType = params?.type as 'meaning' | 'usage';
 
   const [slangWords, setSlangWords] = useState<SlangWord[]>([]);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
@@ -30,7 +30,7 @@ export default function Quiz() {
         const quizQuestions =
           quizType === 'meaning'
             ? generateMeaningQuestions(data, 10)
-            : generatePronunciationQuestions(data, 10);
+            : generateUsageQuestions(data, 10);
 
         setQuestions(quizQuestions);
         setLoading(false);
@@ -117,37 +117,37 @@ export default function Quiz() {
       <div className="min-h-screen bg-background">
         {/* Header */}
         <header className="border-b bg-card sticky top-0 z-10">
-          <div className="container py-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
+          <div className="container py-3 md:py-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary text-primary-foreground flex-shrink-0">
                 {quizType === 'meaning' ? (
-                  <BookOpen className="w-5 h-5" />
+                  <BookOpen className="w-4 h-4 md:w-5 md:h-5" />
                 ) : (
-                  <Headphones className="w-5 h-5" />
+                  <MessageSquare className="w-4 h-4 md:w-5 md:h-5" />
                 )}
               </div>
-              <div>
-                <h1 className="text-lg font-semibold">ผลการทดสอบ</h1>
-                <p className="text-xs text-muted-foreground">
-                  {quizType === 'meaning' ? 'ทดสอบความหมาย' : 'ทดสอบการออกเสียง'}
+              <div className="min-w-0">
+                <h1 className="text-base md:text-lg font-semibold truncate">ผลการทดสอบ</h1>
+                <p className="text-xs text-muted-foreground truncate">
+                  {quizType === 'meaning' ? 'ทดสอบความหมาย' : 'ทดสอบตัวอย่างประโยค'}
                 </p>
               </div>
             </div>
           </div>
         </header>
 
-        <main className="container py-6 md:py-8">
-          <div className="max-w-3xl mx-auto space-y-6">
+        <main className="container py-4 md:py-8 pb-safe">
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
             {/* Score Card */}
             <Card>
               <CardContent className="pt-6">
-                <div className="text-center space-y-4">
-                  <div className={`text-5xl md:text-6xl font-bold ${scoreMessage.color}`}>
+                <div className="text-center space-y-3 md:space-y-4">
+                  <div className={`text-4xl md:text-6xl font-bold ${scoreMessage.color}`}>
                     {percentage}%
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xl font-semibold">{scoreMessage.text}</p>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg md:text-xl font-semibold">{scoreMessage.text}</p>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       ตอบถูก {result.correctAnswers.length} จาก {questions.length} ข้อ
                     </p>
                   </div>
@@ -157,8 +157,8 @@ export default function Quiz() {
 
             {/* Answers Review */}
             <div className="space-y-3">
-              <h2 className="text-lg font-semibold">รายละเอียดคำตอบ</h2>
-              <div className="space-y-3">
+              <h2 className="text-base md:text-lg font-semibold px-1">รายละเอียดคำตอบ</h2>
+              <div className="space-y-2 md:space-y-3">
                 {questions.map((question, index) => {
                   const userAnswer = userAnswers.get(question.id);
                   const isCorrect = userAnswer === question.correctAnswer;
@@ -172,26 +172,26 @@ export default function Quiz() {
                           : 'border-red-200 bg-red-50/50 dark:border-red-800 dark:bg-red-950/30'
                       }`}
                     >
-                      <CardContent className="pt-4">
-                        <div className="flex gap-3">
-                          <div className="flex-shrink-0 mt-1">
+                      <CardContent className="pt-3 md:pt-4 pb-3 md:pb-4">
+                        <div className="flex gap-2 md:gap-3">
+                          <div className="flex-shrink-0 mt-0.5 md:mt-1">
                             {isCorrect ? (
-                              <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 dark:bg-green-900">
-                                <Check className="w-4 h-4 text-green-600 dark:text-green-400" />
+                              <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 dark:bg-green-900">
+                                <Check className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
                               </div>
                             ) : (
-                              <div className="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 dark:bg-red-900">
-                                <X className="w-4 h-4 text-red-600 dark:text-red-400" />
+                              <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-red-100 dark:bg-red-900">
+                                <X className="w-3 h-3 md:w-4 md:h-4 text-red-600 dark:text-red-400" />
                               </div>
                             )}
                           </div>
-                          <div className="flex-1 space-y-2 min-w-0">
-                            <div className="font-semibold text-foreground break-words">
+                          <div className="flex-1 space-y-1.5 md:space-y-2 min-w-0">
+                            <div className="font-semibold text-sm md:text-base text-foreground break-words">
                               {index + 1}. {question.word}
                             </div>
-                            <div className="text-sm space-y-1">
-                              <div className="flex flex-wrap items-start gap-1">
-                                <span className="text-muted-foreground flex-shrink-0">คำตอบของคุณ:</span>
+                            <div className="text-xs md:text-sm space-y-1">
+                              <div className="flex flex-col gap-0.5">
+                                <span className="text-muted-foreground">คำตอบของคุณ:</span>
                                 <span
                                   className={`${
                                     isCorrect
@@ -203,8 +203,8 @@ export default function Quiz() {
                                 </span>
                               </div>
                               {!isCorrect && (
-                                <div className="flex flex-wrap items-start gap-1">
-                                  <span className="text-muted-foreground flex-shrink-0">คำตอบที่ถูกต้อง:</span>
+                                <div className="flex flex-col gap-0.5 pt-1">
+                                  <span className="text-muted-foreground">คำตอบที่ถูกต้อง:</span>
                                   <span className="text-green-600 dark:text-green-400 font-medium break-words">
                                     {question.correctAnswer}
                                   </span>
@@ -221,11 +221,12 @@ export default function Quiz() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 pt-2 md:pt-4">
               <Button
                 variant="outline"
                 onClick={() => setLocation('/')}
                 className="flex-1"
+                size="lg"
               >
                 <Home className="w-4 h-4 mr-2" />
                 กลับหน้าหลัก
@@ -239,10 +240,11 @@ export default function Quiz() {
                   const newQuestions =
                     quizType === 'meaning'
                       ? generateMeaningQuestions(slangWords, 10)
-                      : generatePronunciationQuestions(slangWords, 10);
+                      : generateUsageQuestions(slangWords, 10);
                   setQuestions(newQuestions);
                 }}
                 className="flex-1"
+                size="lg"
               >
                 <RotateCcw className="w-4 h-4 mr-2" />
                 ทำแบบทดสอบอีกครั้ง
@@ -258,19 +260,19 @@ export default function Quiz() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-card sticky top-0 z-10">
-        <div className="container py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
+        <div className="container py-3 md:py-4">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 md:gap-3 min-w-0 flex-1">
+              <div className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary text-primary-foreground flex-shrink-0">
                 {quizType === 'meaning' ? (
-                  <BookOpen className="w-5 h-5" />
+                  <BookOpen className="w-4 h-4 md:w-5 md:h-5" />
                 ) : (
-                  <Headphones className="w-5 h-5" />
+                  <MessageSquare className="w-4 h-4 md:w-5 md:h-5" />
                 )}
               </div>
-              <div>
-                <h1 className="text-lg font-semibold">
-                  {quizType === 'meaning' ? 'ทดสอบความหมาย' : 'ทดสอบการออกเสียง'}
+              <div className="min-w-0">
+                <h1 className="text-base md:text-lg font-semibold truncate">
+                  {quizType === 'meaning' ? 'ทดสอบความหมาย' : 'ทดสอบตัวอย่างประโยค'}
                 </h1>
                 <p className="text-xs text-muted-foreground">
                   คำถามที่ {currentQuestionIndex + 1} / {questions.length}
@@ -281,6 +283,7 @@ export default function Quiz() {
               variant="ghost"
               size="sm"
               onClick={() => setLocation('/')}
+              className="flex-shrink-0"
             >
               <ArrowLeft className="w-4 h-4" />
             </Button>
@@ -288,11 +291,11 @@ export default function Quiz() {
         </div>
       </header>
 
-      <main className="container py-6 md:py-8">
-        <div className="max-w-2xl mx-auto space-y-6">
+      <main className="container py-4 md:py-8 pb-safe">
+        <div className="max-w-2xl mx-auto space-y-4 md:space-y-6">
           {/* Progress */}
           <div className="space-y-2">
-            <div className="flex justify-between text-sm text-muted-foreground">
+            <div className="flex justify-between text-xs md:text-sm text-muted-foreground">
               <span>ความคืบหน้า</span>
               <span>{Math.round(progress)}%</span>
             </div>
@@ -301,54 +304,62 @@ export default function Quiz() {
 
           {/* Question Card */}
           <Card>
-            <CardHeader className="space-y-3">
-              <CardTitle className="text-2xl md:text-3xl text-center font-semibold">
+            <CardHeader className="space-y-2 md:space-y-3 pb-4">
+              <CardTitle className="text-xl md:text-3xl text-center font-semibold break-words">
                 {currentQuestion.word}
               </CardTitle>
-              <CardDescription className="text-center text-base">
+              <CardDescription className="text-center text-sm md:text-base">
                 {quizType === 'meaning'
                   ? 'คำนี้มีความหมายว่าอะไร?'
-                  : 'คำนี้ออกเสียงว่าอย่างไร?'}
+                  : 'ตัวอย่างประโยคที่ใช้คำนี้ได้ถูกต้องคือ?'}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Options */}
-              <div className="grid gap-3">
+              <div className="grid gap-2 md:gap-3">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = selectedAnswer === option;
                   return (
                     <Button
                       key={index}
                       variant={isSelected ? 'default' : 'outline'}
-                      className="h-auto py-4 px-4 text-left justify-start text-base font-normal hover:border-primary/50"
+                      className="h-auto min-h-[3rem] py-3 px-3 md:px-4 text-left justify-start text-sm md:text-base font-normal hover:border-primary/50 whitespace-normal"
                       onClick={() => handleAnswerSelect(option)}
                     >
-                      <span className="mr-3 font-semibold flex-shrink-0">
+                      <span className="mr-2 md:mr-3 font-semibold flex-shrink-0 self-start">
                         {String.fromCharCode(65 + index)}.
                       </span>
-                      <span className="break-words">{option}</span>
+                      <span className="break-words text-left flex-1">{option}</span>
                     </Button>
                   );
                 })}
               </div>
 
               {/* Navigation Buttons */}
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-2 md:gap-3 pt-2 md:pt-4">
                 <Button
                   variant="outline"
                   onClick={handleBack}
                   disabled={currentQuestionIndex === 0}
                   className="flex-1"
+                  size="lg"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  ย้อนกลับ
+                  <span className="hidden sm:inline">ย้อนกลับ</span>
+                  <span className="sm:hidden">ย้อน</span>
                 </Button>
                 <Button
                   onClick={handleNext}
                   disabled={!selectedAnswer}
                   className="flex-1"
+                  size="lg"
                 >
-                  {currentQuestionIndex === questions.length - 1 ? 'ดูผลคะแนน' : 'ถัดไป'}
+                  <span className="hidden sm:inline">
+                    {currentQuestionIndex === questions.length - 1 ? 'ดูผลคะแนน' : 'ถัดไป'}
+                  </span>
+                  <span className="sm:hidden">
+                    {currentQuestionIndex === questions.length - 1 ? 'ผลคะแนน' : 'ถัดไป'}
+                  </span>
                   {currentQuestionIndex < questions.length - 1 && (
                     <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
                   )}

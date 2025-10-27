@@ -34,7 +34,7 @@ export function generateMeaningQuestions(
   });
 }
 
-export function generatePronunciationQuestions(
+export function generateUsageQuestions(
   slangWords: SlangWord[],
   count: number = 10
 ): QuizQuestion[] {
@@ -44,17 +44,17 @@ export function generatePronunciationQuestions(
   return selected.map((word) => {
     const wrongOptions = slangWords
       .filter((w) => w.id !== word.id)
-      .map((w) => w.pronunciation);
+      .map((w) => w.example);
     
     const shuffledWrong = shuffleArray(wrongOptions).slice(0, 3);
-    const options = shuffleArray([word.pronunciation, ...shuffledWrong]);
+    const options = shuffleArray([word.example, ...shuffledWrong]);
 
     return {
       id: word.id,
       word: word.word,
-      correctAnswer: word.pronunciation,
+      correctAnswer: word.example,
       options,
-      type: 'pronunciation' as const,
+      type: 'usage' as const,
     };
   });
 }
