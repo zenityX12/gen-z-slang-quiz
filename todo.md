@@ -52,3 +52,8 @@
 - [x] อัปเดตข้อมูล slang-data.json ให้มี correctUsage และ wrongUsages
 - [x] ทดสอบโหมดใหม่ว่าวัดความเข้าใจได้จริง
 
+
+
+## ปิด Manus Branding
+- [x] ซ่อน "Made with Manus" badge ที่ปรากฏในเว็บไซต์ที่ deploy แล้ว
+
