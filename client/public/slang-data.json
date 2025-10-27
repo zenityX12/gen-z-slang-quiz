@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "word": "จึ้ง",
+    "pronunciation": "จึ้ง",
+    "meaning": "เริ่ดมาก เห็นแล้วอึ้ง ตรึงตาตรึงใจ",
+    "example": "โคตรจึ้ง",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "word": "ชีเสิร์ฟ",
+    "pronunciation": "ชี-เสิร์ฟ",
+    "meaning": "ทำได้ดีมาก เริ่ดที่สุด ปังมาก",
+    "example": "วันนี้ชีเสิร์ฟสุด ๆ",
+    "difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "word": "เหยิน",
+    "pronunciation": "เหยิน",
+    "meaning": "เขินมาก ๆ จนยิ้มเห็นฟันออกมาโดยไม่รู้ตัว",
+    "example": "เหยินจนต้องหาคลินิกจัดฟัน",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "word": "ฮ็อป",
+    "pronunciation": "ฮ็อป",
+    "meaning": "เขินมาก ๆ แต่กลั้นยิ้มหรือเม้มปากเอาไว้",
+    "example": "ฮ็อปมาก พูดไม่ออก",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "word": "อ่อม",
+    "pronunciation": "อ่อม",
+    "meaning": "อ่อนล้า หมดพลัง ไม่สมบูรณ์แบบ",
+    "example": "วันนี้รู้สึกอ่อมมาก",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "word": "เม็ดเยอะ",
+    "pronunciation": "เม็ด-เยอะ",
+    "meaning": "เรื่องมาก หรือมีความลับแต่ไม่ยอมพูด",
+    "example": "โอ๊ยยย เม็ดเยอะเกินไป",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "word": "แก้วมังกร",
+    "pronunciation": "แก้ว-มัง-กร",
+    "meaning": "เรื่องมากกว่าเม็ดเยอะ มีเรื่องเยอะมาก",
+    "example": "แก้วมังกรจริง ๆ",
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "word": "ชั้น G",
+    "pronunciation": "ชั้น-จี",
+    "meaning": "ชั้นต่ำ ไม่มีมารยาท",
+    "example": "พฤติกรรมชั้น G",
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "word": "โช๊ะ",
+    "pronunciation": "โช๊ะ",
+    "meaning": "เริ่ดกว่าจึ้ง สุดยอดมาก",
+    "example": "โคตรโช๊ะ",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "word": "เทสมาก",
+    "pronunciation": "เทส-มาก",
+    "meaning": "ตรงสเปก ชอบมาก ถูกใจสุด ๆ",
+    "example": "หนุ่มคนนั้นเทสมาก",
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "word": "สารตั้งต้น",
+    "pronunciation": "สาร-ตั้ง-ต้น",
+    "meaning": "คนต้นเรื่อง คนสร้างเรื่อง",
+    "example": "เธอคือสารตั้งต้น",
+    "difficulty": "hard"
+  },
+  {
+    "id": 12,
+    "word": ".com",
+    "pronunciation": "ดอท-คอม",
+    "meaning": "เซ่อซ่า พยายามแสดงความเห็น เสนอหน้า",
+    "example": "แกนี่ .com จริง ๆ",
+    "difficulty": "medium"
+  },
+  {
+    "id": 13,
+    "word": "5656566565",
+    "pronunciation": "ห้า-หก-ห้า-หก",
+    "meaning": "หัวเราะแบบ Gen Z ดูจริงใจกว่า 5555",
+    "example": "5656566565 ขำมาก",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "word": "คนไทยคนแรก",
+    "pronunciation": "คน-ไทย-คน-แรก",
+    "meaning": "ประชดคนที่คิดว่าทำอะไรใหม่ แต่จริง ๆ คนอื่นทำมานานแล้ว",
+    "example": "คนไทยคนแรกที่ได้ใช้ iPhone",
+    "difficulty": "hard"
+  },
+  {
+    "id": 15,
+    "word": "เซรั่มนารามาก",
+    "pronunciation": "เซ-รั่ม-นา-รา-มาก",
+    "meaning": "เริ่ดมากที่สุด ดีเกินจริง",
+    "example": "หน้าเริ่ด ผมปัง เซรั่มนารามาก",
+    "difficulty": "hard"
+  },
+  {
+    "id": 16,
+    "word": "ใกล้ฉัน",
+    "pronunciation": "ใกล้-ฉัน",
+    "meaning": "ต้องการสิ่งนั้น อยากจะหยิบมาใช้ตอนนั้น",
+    "example": "ทิชชู่ใกล้ฉัน",
+    "difficulty": "medium"
+  },
+  {
+    "id": 17,
+    "word": "โคตร",
+    "pronunciation": "โคตร",
+    "meaning": "มาก ๆ เน้นย้ำความรุนแรง",
+    "example": "โคตรเจ๋ง",
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "word": "ปัง",
+    "pronunciation": "ปัง",
+    "meaning": "เด่น โดดเด่น สวยงาม",
+    "example": "ชุดนี้ปังมาก",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "word": "เรียว",
+    "pronunciation": "เรียว",
+    "meaning": "สวย หล่อ น่ารัก",
+    "example": "เรียวจัง",
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "word": "กาก",
+    "pronunciation": "กาก",
+    "meaning": "แย่ ไม่ดี ไม่เก่ง",
+    "example": "เล่นกากมาก",
+    "difficulty": "easy"
+  }
+]
+
